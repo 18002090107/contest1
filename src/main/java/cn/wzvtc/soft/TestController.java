@@ -2,6 +2,7 @@ package cn.wzvtc.soft;
 
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,5 +33,9 @@ public class TestController {
             resultMap.put("result","success");
         }
         return resultMap;
+    }
+    @RequestMapping(value = "/logout")
+    public void logout(HttpServletRequest httpServletRequest) {
+        httpServletRequest.getSession().removeAttribute("loginnumber");
     }
 }
